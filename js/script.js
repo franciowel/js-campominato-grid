@@ -12,7 +12,7 @@
 
 // // START
 const userLevel = prompt('Scegli un livello (1-2-3)');
-
+const numbofBombs = 16;
 gameMaxRange = 0;
 
 // se liv 1 - num da 1 a 100
@@ -56,4 +56,42 @@ function bombsGenesis(numbofBombs, rangeMin, rangeMax) {
 // FUNZIONE CHE GENERA RANDOM NUMBERS
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+    
 }
+
+// CONOSCERE IL NUMERO MASSIMO DI  TENTATIVI = gameMaxRange - num bombe (16)
+const maxAttemptes = 2;
+console.log(maxAttemptes)
+
+// ARRAY DEI NUM AZZECCATI
+yourNumbers = [];
+
+
+let gameContinues = true;
+// finchè il gioco non è finito
+    // chiediamo all'utente un numero (tramite prompt)
+while(gameContinues = true) {
+    // chiedo all'utente un numero
+    const userNumber = parseInt(prompt('Dammi un numero'));
+    // se num è una bomba = alert 'hai perso'
+    if(bombs.includes(userNumber)) {
+        gameContinues = false;
+        endGame('lost', yourNumbers);
+    } else {
+        // inserisco num in un array numCorretti se non è già presente
+        if(!yourNumbers.includes(userNumber)) {
+            yourNumbers.push(userNumber);
+        }
+        // se user ha raggiunto numMax tentativi (lunghezza arrayAzzeccati === numerotentativi) alert hai vinto
+        if(yourNumbers.lenght === maxAttemptes) {
+            gameContinues = false;
+            endGame( 'won', yourNumbers);
+        }
+        console.log(yourNumbers);
+    }
+}
+
+
+
+
+
