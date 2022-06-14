@@ -93,5 +93,17 @@ while(gameContinues = true) {
 
 
 
+// GENERO UNA FUNZIONE PER SPECIFICARE SE SI VINCE E CON QUANTI TENTATIVI
+
+function endGame(gameResult, yourNumbers) {
+    if(gameResult === 'won') {
+        alert('hai vinto');
+    } else {
+        alert('hai perso')
+        // messaggio con numero tentativi .length
+        alert('tentativi giusti:'+ ' ' + yourNumbers.length)
+
+    }
+}
 
 
