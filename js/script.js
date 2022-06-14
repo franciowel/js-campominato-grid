@@ -30,3 +30,30 @@ console.log(gameMaxRange);
 
 // GENERO 16 BOMBE
     // range da 1 a max num (49, 81, 100)
+const bombs = bombsGenesis(16, 1, gameMaxRange);
+console.log(bombs)
+
+// genero un array di 16 bombe
+function bombsGenesis(numbofBombs, rangeMin, rangeMax) {
+    
+    const randomNumbersArray = [];
+
+    while(randomNumbersArray.length < numbofBombs) {
+        // CREARE NUM RANDOM DA RANGEMIN A RANGEMAX
+        // rangeMin range minimo per i numeri random generati
+        // rageMax range massimo dei numeri random generati
+        const randomNum = getRndInteger(rangeMin, rangeMax);
+        // PUSHIAMO SOLO SE NUM NON GIA PRESENTE
+        if(!randomNumbersArray.includes(randomNum)) {
+            randomNumbersArray.push(randomNum);
+        }
+
+    }
+    // return : array di numeri random con lunghezza numbofBombs
+    return randomNumbersArray;
+}
+
+// FUNZIONE CHE GENERA RANDOM NUMBERS
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
